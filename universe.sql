@@ -63,10 +63,10 @@ CREATE TABLE public.black_hole (
 ALTER TABLE public.black_hole OWNER TO freecodecamp;
 
 --
--- Name: black_hole_hole_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
+-- Name: black_hole_black_hole_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
 --
 
-CREATE SEQUENCE public.black_hole_hole_id_seq
+CREATE SEQUENCE public.black_hole_black_hole_id_seq
     AS integer
     START WITH 1
     INCREMENT BY 1
@@ -75,13 +75,13 @@ CREATE SEQUENCE public.black_hole_hole_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.black_hole_hole_id_seq OWNER TO freecodecamp;
+ALTER TABLE public.black_hole_black_hole_id_seq OWNER TO freecodecamp;
 
 --
--- Name: black_hole_hole_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
+-- Name: black_hole_black_hole_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
 --
 
-ALTER SEQUENCE public.black_hole_hole_id_seq OWNED BY public.black_hole.black_hole_id;
+ALTER SEQUENCE public.black_hole_black_hole_id_seq OWNED BY public.black_hole.black_hole_id;
 
 
 --
@@ -104,10 +104,10 @@ CREATE TABLE public.galaxy (
 ALTER TABLE public.galaxy OWNER TO freecodecamp;
 
 --
--- Name: galaxy_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
+-- Name: galaxy_galaxy_id_seq; Type: SEQUENCE; Schema: public; Owner: freecodecamp
 --
 
-CREATE SEQUENCE public.galaxy_id_seq
+CREATE SEQUENCE public.galaxy_galaxy_id_seq
     AS integer
     START WITH 1
     INCREMENT BY 1
@@ -116,13 +116,13 @@ CREATE SEQUENCE public.galaxy_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.galaxy_id_seq OWNER TO freecodecamp;
+ALTER TABLE public.galaxy_galaxy_id_seq OWNER TO freecodecamp;
 
 --
--- Name: galaxy_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
+-- Name: galaxy_galaxy_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: freecodecamp
 --
 
-ALTER SEQUENCE public.galaxy_id_seq OWNED BY public.galaxy.galaxy_id;
+ALTER SEQUENCE public.galaxy_galaxy_id_seq OWNED BY public.galaxy.galaxy_id;
 
 
 --
@@ -219,7 +219,7 @@ CREATE TABLE public.star (
     diameter_in_millions_km numeric,
     age_in_millions_of_years integer NOT NULL,
     description text,
-    suface_temp_in_c integer NOT NULL,
+    surface_temperature_in_c integer NOT NULL,
     is_spherical boolean,
     is_dwarf_star boolean,
     galaxy_id integer
@@ -254,14 +254,14 @@ ALTER SEQUENCE public.star_star_id_seq OWNED BY public.star.star_id;
 -- Name: black_hole black_hole_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
 --
 
-ALTER TABLE ONLY public.black_hole ALTER COLUMN black_hole_id SET DEFAULT nextval('public.black_hole_hole_id_seq'::regclass);
+ALTER TABLE ONLY public.black_hole ALTER COLUMN black_hole_id SET DEFAULT nextval('public.black_hole_black_hole_id_seq'::regclass);
 
 
 --
 -- Name: galaxy galaxy_id; Type: DEFAULT; Schema: public; Owner: freecodecamp
 --
 
-ALTER TABLE ONLY public.galaxy ALTER COLUMN galaxy_id SET DEFAULT nextval('public.galaxy_id_seq'::regclass);
+ALTER TABLE ONLY public.galaxy ALTER COLUMN galaxy_id SET DEFAULT nextval('public.galaxy_galaxy_id_seq'::regclass);
 
 
 --
@@ -365,17 +365,17 @@ INSERT INTO public.star VALUES (6, 'Triangulum Star X', 0.9, 5000, 'Representati
 
 
 --
--- Name: black_hole_hole_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
+-- Name: black_hole_black_hole_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.black_hole_hole_id_seq', 5, true);
+SELECT pg_catalog.setval('public.black_hole_black_hole_id_seq', 5, true);
 
 
 --
--- Name: galaxy_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
+-- Name: galaxy_galaxy_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.galaxy_id_seq', 6, true);
+SELECT pg_catalog.setval('public.galaxy_galaxy_id_seq', 6, true);
 
 
 --
